@@ -1,0 +1,14 @@
+{
+  "name": "our-chat",
+  "version": "2.0.0",
+  "description": "A private real-time chat with accounts, username search and connection requests. No dependencies.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "private": true
+}

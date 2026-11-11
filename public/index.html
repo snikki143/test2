@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+  <meta name="theme-color" content="#0b0a12">
+  <meta name="description" content="Find people by username and chat privately.">
+  <title>Our Chat</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <!-- Sign in / create account -->
+  <main id="login" class="screen hidden">
+    <div class="auth-layout">
+      <section class="auth-story" aria-label="About Our Chat">
+        <div class="brand-lockup">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <path d="M10 13.5A5.5 5.5 0 0 1 15.5 8h17a5.5 5.5 0 0 1 5.5 5.5v13a5.5 5.5 0 0 1-5.5 5.5H22l-9.5 7v-7h-1A5.5 5.5 0 0 1 6 26.5v-13Z" fill="currentColor" opacity=".96"/>
+              <circle cx="17" cy="20" r="1.8" fill="#171225"/><circle cx="24" cy="20" r="1.8" fill="#171225"/><circle cx="31" cy="20" r="1.8" fill="#171225"/>
+            </svg>
+          </span>
+          <span class="brand-name">our<span>chat</span></span>
+        </div>
+
+        <div class="story-copy">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> FIND YOUR PEOPLE</div>
+          <h1>Pick a username.<br><span>Start talking.</span></h1>
+          <p>Create your account, search for a friend by username, send a request, and chat the moment they accept. No feeds, no crowds.</p>
+          <div class="story-points">
+            <div class="story-point">
+              <span class="point-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></span>
+              <span><strong>Search by username</strong><small>Look someone up and send a request</small></span>
+            </div>
+            <div class="story-point">
+              <span class="point-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 5 6v5c0 4.5 2.9 8.2 7 10 4.1-1.8 7-5.5 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+              <span><strong>You decide who can message you</strong><small>Nobody can chat until you accept</small></span>
+            </div>
+            <div class="story-point">
+              <span class="point-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12h3l2-6 4 12 2-6h5"/></svg></span>
+              <span><strong>Here, as it happens</strong><small>Messages arrive in real time</small></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="story-footer">
+          <span class="footer-orbit" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span>MADE FOR MEANINGFUL MOMENTS</span>
+        </div>
+        <div class="story-orb" aria-hidden="true"></div>
+      </section>
+
+      <section class="auth-main">
+        <form id="loginForm" class="card" autocomplete="on">
+          <div class="mobile-brand brand-lockup">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M10 13.5A5.5 5.5 0 0 1 15.5 8h17a5.5 5.5 0 0 1 5.5 5.5v13a5.5 5.5 0 0 1-5.5 5.5H22l-9.5 7v-7h-1A5.5 5.5 0 0 1 6 26.5v-13Z" fill="currentColor"/><circle cx="17" cy="20" r="1.8" fill="#171225"/><circle cx="24" cy="20" r="1.8" fill="#171225"/><circle cx="31" cy="20" r="1.8" fill="#171225"/></svg>
+            </span>
+            <span class="brand-name">our<span>chat</span></span>
+          </div>
+
+          <div class="tabs" role="tablist" aria-label="Sign in or create account">
+            <button type="button" id="tabLogin" class="tab active" role="tab" aria-selected="true">Log in</button>
+            <button type="button" id="tabSignup" class="tab" role="tab" aria-selected="false">Create account</button>
+          </div>
+
+          <div class="form-heading">
+            <h2 id="formTitle">Welcome back.</h2>
+            <p id="formSub">Log in to see your conversations.</p>
+          </div>
+
+          <div class="field-group">
+            <label for="username">Username</label>
+            <div class="field-wrap">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.7-3.2 3.1-5 7-5s6.3 1.8 7 5"/></svg>
+              <input id="username" maxlength="20" required autocapitalize="off" autocorrect="off" spellcheck="false" autocomplete="username" placeholder="e.g. nikki_143">
+            </div>
+            <small id="usernameHint" class="field-hint hidden">3-20 characters: letters, numbers, "." and "_".</small>
+          </div>
+
+          <div class="field-group">
+            <label for="password">Password</label>
+            <div class="field-wrap">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v2"/></svg>
+              <input id="password" type="password" maxlength="100" required placeholder="Your password" autocomplete="current-password">
+            </div>
+            <small id="passwordHint" class="field-hint hidden">At least 8 characters.</small>
+          </div>
+
+          <button type="submit" id="joinBtn" class="primary">
+            <span id="joinLabel">Log in</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+          </button>
+          <p id="loginError" class="error" role="alert"></p>
+          <div class="form-foot">Passwords are stored hashed. Messages are not end-to-end encrypted.</div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <!-- App -->
+  <section id="chat" class="chat hidden">
+    <div id="frame" class="chat-frame" data-view="list">
+
+      <!-- Left: people and conversations -->
+      <aside class="side-panel" aria-label="Conversations">
+        <div class="side-head">
+          <div class="brand-lockup sidebar-brand">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M10 13.5A5.5 5.5 0 0 1 15.5 8h17a5.5 5.5 0 0 1 5.5 5.5v13a5.5 5.5 0 0 1-5.5 5.5H22l-9.5 7v-7h-1A5.5 5.5 0 0 1 6 26.5v-13Z" fill="currentColor"/><circle cx="17" cy="20" r="1.8" fill="#171225"/><circle cx="24" cy="20" r="1.8" fill="#171225"/><circle cx="31" cy="20" r="1.8" fill="#171225"/></svg>
+            </span>
+            <span class="brand-name">our<span>chat</span></span>
+          </div>
+          <button id="logoutBtn" class="icon" type="button" aria-label="Sign out" title="Sign out">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/></svg>
+          </button>
+        </div>
+
+        <div class="me-row">
+          <div id="meAvatar" class="avatar small" aria-hidden="true"></div>
+          <div class="me-copy"><strong id="meName"></strong><small>Signed in</small></div>
+        </div>
+
+        <div class="search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+          <input id="search" type="search" maxlength="21" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Search a username to connect" aria-label="Search for a username">
+        </div>
+
+        <div id="results" class="results hidden" aria-live="polite"></div>
+
+        <div id="listWrap" class="list-wrap">
+          <div id="requestsBlock" class="hidden">
+            <div class="section-label">REQUESTS <span id="requestsCount" class="count"></span></div>
+            <div id="requests" class="list"></div>
+          </div>
+          <div class="section-label">MESSAGES</div>
+          <div id="chatList" class="list"></div>
+          <div id="listEmpty" class="list-empty hidden">
+            <strong>No conversations yet</strong>
+            <p>Search for a friend's username above and send them a request.</p>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Right: conversation -->
+      <main class="conversation-panel">
+        <div id="noChat" class="no-chat">
+          <span class="no-chat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 6.5A2.5 2.5 0 0 1 7.5 4h9A2.5 2.5 0 0 1 19 6.5v7a2.5 2.5 0 0 1-2.5 2.5H11l-4 3.5V16h-.5A2.5 2.5 0 0 1 4 13.5v-7"/></svg></span>
+          <h2>Your messages</h2>
+          <p>Pick a conversation, or search for a username to start a new one.</p>
+        </div>
+
+        <div id="convo" class="convo hidden">
+          <header class="bar">
+            <button id="backBtn" class="icon back" type="button" aria-label="Back to conversations">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
+            </button>
+            <div id="peerAvatar" class="avatar" aria-hidden="true"></div>
+            <div class="who">
+              <div id="peerName" class="name"></div>
+              <div id="peerStatus" class="status"></div>
+            </div>
+          </header>
+
+          <div id="banner" class="banner hidden" role="status"></div>
+          <div id="requestBar" class="request-bar hidden"></div>
+          <div id="messages" class="messages" aria-live="polite"></div>
+
+          <button id="toBottom" class="to-bottom hidden" type="button" aria-label="Jump to latest message">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            <span id="unreadCount" class="badge"></span>
+          </button>
+
+          <form id="composer" class="composer">
+            <div class="composer-shell">
+              <textarea id="input" rows="1" maxlength="4000" placeholder="Write a message…" aria-label="Message" enterkeyhint="send"></textarea>
+              <div class="composer-bottom">
+                <span class="composer-hint">ENTER TO SEND <i>·</i> SHIFT + ENTER FOR A NEW LINE</span>
+                <button id="sendBtn" class="send" type="submit" aria-label="Send" disabled>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12 20 4l-5.5 16-3-6-7.5-2Z"/><path d="m11.5 14 4-4"/></svg>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script src="/app.js"></script>
+</body>
+</html>

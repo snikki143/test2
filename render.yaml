@@ -1,0 +1,19 @@
+# Render "Blueprint": lets Render set up the site automatically from this repo.
+# A persistent disk keeps your chat history across restarts (disks need a paid plan).
+services:
+  - type: web
+    name: our-chat
+    runtime: node
+    plan: starter
+    buildCommand: echo "nothing to build"
+    startCommand: node server.js
+    healthCheckPath: /
+    envVars:
+      - key: DATA_FILE
+        value: /data/data.json
+      - key: TRUST_PROXY   # lets rate limits see each visitor's real IP behind Render's proxy
+        value: "1"
+    disk:
+      name: chat-data
+      mountPath: /data
+      sizeGB: 1
